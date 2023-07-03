@@ -88,8 +88,7 @@ namespace UserManagment2.Areas.Identity.Pages.Account
             public string LastName { get; set; }
 
             [Required]
-            [EmailAddress]
-            [Display(Name = "Email")]
+            [Display(Name ="Email or Username")]
             public string Email { get; set; }
 
 
