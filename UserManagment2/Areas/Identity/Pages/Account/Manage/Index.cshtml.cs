@@ -66,6 +66,10 @@ namespace UserManagment2.Areas.Identity.Pages.Account.Manage
             [Display(Name = "Last Name")]
             public string LastName { get; set; }
             
+            [Required]
+            [Display(Name = "Job Title")]
+            public string JobTitle { get; set; }
+            
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
@@ -82,6 +86,7 @@ namespace UserManagment2.Areas.Identity.Pages.Account.Manage
             {
                 FirstName = user.FirstName, 
                 LastName = user.LastName,
+                JobTitle = user.JobTitle,
 
                 PhoneNumber = phoneNumber
             };
@@ -117,6 +122,7 @@ namespace UserManagment2.Areas.Identity.Pages.Account.Manage
             // add variable to save in database
             var firstName = user.FirstName; 
             var lastName = user.LastName;
+            var jobTitle = user.JobTitle;
 
             //check if first name and last name changed to update in database
             if (Input.FirstName != firstName)
@@ -127,6 +133,11 @@ namespace UserManagment2.Areas.Identity.Pages.Account.Manage
             if (Input.LastName != lastName)
             {
                 user.LastName = Input.LastName;
+                await _userManager.UpdateAsync(user);
+            }
+            if (Input.JobTitle != jobTitle)
+            {
+                user.JobTitle = Input.JobTitle;
                 await _userManager.UpdateAsync(user);
             }
 

@@ -88,6 +88,16 @@ namespace UserManagment2.Areas.Identity.Pages.Account
             public string LastName { get; set; }
 
             [Required]
+            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.")]
+            [Display(Name = "Job Tilte")]
+            public string JobTilte { get; set; }
+
+
+            [Phone]
+            [Display(Name = "Phone number")]
+            public string PhoneNumber { get; set; }
+
+            [Required]
             [Display(Name ="Email or Username")]
             public string Email { get; set; }
 
@@ -122,6 +132,8 @@ namespace UserManagment2.Areas.Identity.Pages.Account
                 //user.UserName= new MailAddress(Input.Email).User;
                 user.FirstName = Input.FirstName;
                 user.LastName = Input.LastName;
+                user.JobTitle = Input.JobTilte;
+                user.PhoneNumber= Input.PhoneNumber;
 
                 await _userStore.SetUserNameAsync(user, new MailAddress(Input.Email).User, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);

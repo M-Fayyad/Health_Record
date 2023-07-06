@@ -11,6 +11,9 @@ namespace UserManagment2.Models
 		[Required,MaxLength(100)]
 		public string? LastName { get; set; }
 
+		[Required,MaxLength(100)]
+		public string? JobTitle { get; set; }
+
 		public byte[]? ProfilePicture { get; set; }
 
 	}
