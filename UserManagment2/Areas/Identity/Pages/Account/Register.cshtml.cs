@@ -147,8 +147,8 @@ namespace UserManagment2.Areas.Identity.Pages.Account
                     // Assign role based on user's job
                     if (Input.JobTilte.ToLower() == "doctor" || Input.JobTilte.ToLower() == "nurse")
                     {
-                         // Replace with the actual role name for doctors
-                        await _userManager.AddToRoleAsync(user,RolesName.DoctorRole)
+                        // Replace with the actual role name for doctors
+                        await _userManager.AddToRoleAsync(user, RolesName.DoctorRole);
                     }
                     else
                     {
