@@ -147,13 +147,13 @@ namespace UserManagment2.Areas.Identity.Pages.Account
                     // Assign role based on user's job
                     if (Input.JobTilte.ToLower() == "doctor" || Input.JobTilte.ToLower() == "nurse")
                     {
-                        var doctorRole = "Doctor"; // Replace with the actual role name for doctors
-                        await _userManager.AddToRoleAsync(user, doctorRole);
+                         // Replace with the actual role name for doctors
+                        await _userManager.AddToRoleAsync(user,RolesName.DoctorRole)
                     }
                     else
                     {
-                        var userRole = "User"; // Replace with the actual role name for regular users
-                        await _userManager.AddToRoleAsync(user, userRole);
+                         // Replace with the actual role name for regular users
+                        await _userManager.AddToRoleAsync(user, RolesName.EmployeeRole);
                     }
 
                     var userId = await _userManager.GetUserIdAsync(user);
