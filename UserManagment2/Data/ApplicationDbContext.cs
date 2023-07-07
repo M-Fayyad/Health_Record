@@ -42,6 +42,34 @@ namespace UserManagment2.Data
             modelBuilder.Entity<IdentityUserLogin<string>>().ToTable("UserLogins");
             modelBuilder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims");
             modelBuilder.Entity<IdentityUserToken<string>>().ToTable("UserTokens");
+
+            modelBuilder.Entity<IdentityUserLogin<string>>(entity =>
+            {
+                entity.HasNoKey();
+
+                // Additional configuration for the entity if needed
+
+                entity.ToTable("UserLogins");
+            });
+            
+            modelBuilder.Entity<IdentityUserRole<string>>(entity =>
+            {
+                entity.HasNoKey();
+
+                // Additional configuration for the entity if needed
+
+                entity.ToTable("UserRoles");
+            }); 
+            
+            modelBuilder.Entity<IdentityUserToken<string>>(entity =>
+            {
+                entity.HasKey(token => new { token.UserId, token.LoginProvider, token.Name });
+
+                // Additional configuration for the entity if needed
+
+                entity.ToTable("UserTokens");
+            });
+
             modelBuilder.Entity<Diagnosis>(entity =>
             {
                 entity.ToTable("diagnosis");
@@ -215,7 +243,6 @@ namespace UserManagment2.Data
 
         private void OnModelCreatingPartial(ModelBuilder modelBuilder)
         {
-            throw new NotImplementedException();
         }
     }
 }
