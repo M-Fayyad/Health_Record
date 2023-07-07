@@ -4,12 +4,13 @@
     ViewData["Title"] = "Update Diagnosis";
 }
 
-<h1>Update Diagnosis</h1>
+
 
 <br />
-<div class="row">
-    <div class="col-md-6">
+<div class="row container">
+    <div class="col-md-6 container">
         <form asp-action="Edit">
+            <h1>Update Diagnosis</h1>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="DiagnosisId" />
             
@@ -62,7 +63,7 @@
         </form>
     </div>
     <div class="col-md-6">
-        <img src="~/images/2.png" alt="Docter" class="w-75">
+        <img src="~/images/2.png" alt="Docter" class="w-100">
     </div>
 
 </div>

@@ -20,3 +20,24 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+/*updates*/
+.imno{
+/*    width: 100px;*/
+    height:90px;
+}
+
+.nav-wdth{
+    height:90px;
+}
+
+.welcomeimg {
+    
+/*    background-image: url(../images/4.png);*/
+    height:75vh;
+    width:100%;
+    background-color:aqua;
+    background-size: cover;
+    background-position: center center;
+}
