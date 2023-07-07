@@ -9,7 +9,7 @@ using NToastNotify;
 using UserManagment2.Data;
 using UserManagment2.Models;
 
-namespace TSHis2.Controllers
+namespace UserManagment2.Controllers
 {
     public class VisitsController : Controller
     {
