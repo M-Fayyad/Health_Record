@@ -12,8 +12,8 @@ using UserManagment2.Data;
 namespace UserManagment2.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230703155129_updateApplicationUserTable")]
-    partial class updateApplicationUserTable
+    [Migration("20230706223509_SeedDoctorRole")]
+    partial class SeedDoctorRole
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -178,6 +178,11 @@ namespace UserManagment2.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("JobTitle")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");

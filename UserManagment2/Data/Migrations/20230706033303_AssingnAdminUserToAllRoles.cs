@@ -16,7 +16,7 @@ namespace UserManagment2.Data.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.Sql("DELETE [UserRoles] WHERE UserId = '6f25dff4-5f3a-41d5-968d-09067f24d826'");
+            migrationBuilder.Sql("DELETE FROM [UserRoles] WHERE UserId = '6f25dff4-5f3a-41d5-968d-09067f24d826'");
         }
     }
 }
