@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using UserManagment2.Models;
+using UserManagment2.ViewModels;
 
 namespace UserManagment2.Controllers
 {
@@ -20,6 +21,20 @@ namespace UserManagment2.Controllers
         {
             var roles = await _roleManager.Roles.ToListAsync();
             return View(roles);
+        }
+
+        public async Task<IActionResult> Add(RoleFormViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View("Index", await _roleManager.Roles.ToListAsync());
+            var roleIsExists = await _roleManager.RoleExistsAsync(model.Name);
+            if (roleIsExists)
+            {
+                ModelState.AddModelError("Name", "Role is exists!");
+                return View("Index", await _roleManager.Roles.ToListAsync());
+            }
+            await _roleManager.CreateAsync(new IdentityRole(model.Name.Trim()));
+            return RedirectToAction(nameof(Index));
         }
     }
 }

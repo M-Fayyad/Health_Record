@@ -144,17 +144,17 @@ namespace UserManagment2.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User created a new account with password.");
 
-                    // Assign role based on user's job
-                    if (Input.JobTilte.ToLower() == "doctor" || Input.JobTilte.ToLower() == "nurse")
-                    {
-                        // Replace with the actual role name for doctors
-                        await _userManager.AddToRoleAsync(user, RolesName.DoctorRole);
-                    }
-                    else
-                    {
-                         // Replace with the actual role name for regular users
-                        await _userManager.AddToRoleAsync(user, RolesName.EmployeeRole);
-                    }
+                    //// Assign role based on user's job
+                    //if (Input.JobTilte.ToLower() == "doctor" || Input.JobTilte.ToLower() == "nurse")
+                    //{
+                    //    // Replace with the actual role name for doctors
+                    //    await _userManager.AddToRoleAsync(user, RolesName.DoctorRole);
+                    //}
+                    //else
+                    //{
+                    //     // Replace with the actual role name for regular users
+                    //    await _userManager.AddToRoleAsync(user, RolesName.EmployeeRole);
+                    //}
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

@@ -6,6 +6,11 @@
 
 
 <h1 class="container">Roles</h1>
+
+<div class="container">
+	<partial name="_RoleForm" model="new RoleFormViewModel()" />
+</div>
+
 <table class="table table-striped mt-4 container">
 	<thead >
 		<tr class="bg-primary text-white">
@@ -23,4 +28,8 @@
 		}
 	</tbody>
 </table>
+
+@section Scripts {
+		<partial name="_ValidationScriptsPartial" />
+}
 

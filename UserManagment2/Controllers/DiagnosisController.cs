@@ -12,7 +12,7 @@ using UserManagment2.Models;
 
 namespace UserManagment2.Controllers
 {
-    [Authorize(Roles =RolesName.DoctorRole)]
+    //[Authorize(Roles =RolesName.DoctorRole)]
     public class DiagnosisController : Controller
     {
         private readonly ApplicationDbContext _context;
