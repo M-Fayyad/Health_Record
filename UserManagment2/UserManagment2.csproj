@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-UserManagment2-e3192d9b-4f2f-46bd-8683-1812a16f32c8</UserSecretsId>
   </PropertyGroup>

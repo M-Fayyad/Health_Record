@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using UserManagment2.Data;
 using UserManagment2.Models;
 using UserManagment2.ViewModels;
 
@@ -11,25 +12,28 @@ namespace UserManagment2.Controllers
 	public class UsersController : Controller
 	{
 		private readonly UserManager<ApplicationUser> _userManager;
-		private readonly RoleManager<IdentityRole> _roleManager;
+		private readonly ApplicationDbContext _context;
 		 
-		public UsersController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+		public UsersController(UserManager<ApplicationUser> userManager , ApplicationDbContext context)
 		{
 			_userManager = userManager;
-			_roleManager = roleManager;
+			_context = context;
 		}
 
 		public async Task<IActionResult> Index()
 		{
-			var users = await _userManager.Users.Select(user => new UserViewModel
-			{
-				Id = user.Id,
-				FirstName = user.FirstName,
-				LastName = user.LastName,
-				UserName = user.UserName,
-				Email = user.Email,
-				Roles = _userManager.GetRolesAsync(user).Result
-			}).ToListAsync();
+			var users = await  _context.Users
+				.Select(user=> new UserViewModel()
+				{
+                    Id = user.Id,
+					FirstName = user.FirstName,
+					LastName = user.LastName,
+					UserName = user.UserName,
+					Email = user.Email,
+					Roles =   _userManager.GetRolesAsync(user).Result
+				})
+				.ToListAsync();
+
 
 			return View(users);
 		}
