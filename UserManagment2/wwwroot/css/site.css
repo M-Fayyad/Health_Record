@@ -38,11 +38,8 @@ body {
 }
 
 .welcomeimg {
-    
-/*    background-image: url(../images/4.png);*/
-    height:75vh;
-    width:100%;
-    background-color:aqua;
-    background-size: cover;
-    background-position: center center;
+    height: 70vh;
+    width: 179vh;
+    border: 2px solid black;
+    border-radius: 9px;
 }
